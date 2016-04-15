@@ -1,0 +1,37 @@
+{
+  "name": "cfx.example-cfx-redux-counter",
+  "version": "0.0.0",
+  "description": "cfx.example-cfx-redux-counter",
+  "main": "index.js",
+  "scripts": {
+    "test": "./test/index.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-cfx/cfx.example-cfx-redux-counter.git"
+  },
+  "keywords": [
+    "cfx"
+  ],
+  "author": "FooTearth <footearth@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-cfx/cfx.example-cfx-redux-counter/issues"
+  },
+  "homepage": "https://github.com/react-cfx/cfx.example-cfx-redux-counter#readme",
+  "devDependencies": {
+    "co": "^4.6.0",
+    "ddeyes": "^0.0.1",
+    "is-equal": "^1.5.1",
+    "redux-on-state-change": "^1.0.0",
+    "shelljs": "^0.6.0",
+    "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "cfx.redux-types": "git+https://github.com/react-cfx/cfx.redux-types.git",
+    "cfx.redux-actions": "git+https://github.com/react-cfx/cfx.redux-actions.git",
+    "cfx.redux-saga": "git+https://github.com/react-cfx/cfx.redux-saga.git",
+    "cfx.redux": "git+https://github.com/react-cfx/cfx.redux.git"
+  }
+}
