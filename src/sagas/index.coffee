@@ -2,6 +2,7 @@
 {
   saga
   sagaEffects
+  dispatch
 } = require 'cfx.redux-saga'
 { takeEvery } = saga
 {
@@ -23,16 +24,14 @@ delay = (ms) ->
 
 incrementAsync = (action) ->
   yield call delay, 1000
-  yield put assign {}
-  , action
-  , type: INCREMENT
+  yield dispatch action
+  , INCREMENT
   return
 
 decrementAsync = (action) ->
   yield call delay, 1000
-  yield put assign {}
-  , action
-  , type: DECREMENT
+  yield dispatch action
+  , DECREMENT
   return
 
 rootSaga = [

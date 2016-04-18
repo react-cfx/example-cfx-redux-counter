@@ -3,7 +3,6 @@ test = require 'tape'
 ReducersSyncTest = require './ReducersSyncTest'
 SagasAsyncTest = require './SagasAsyncTest'
 
-
 test 'Sync Reducers Test'
 , ReducersSyncTest
 
