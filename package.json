@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./test/index.coffee",
-    "clean": "rm -rf build",
+    "clean": "rimraf -rf build",
     "build": "npm run clean; coffee -bo build src"
   },
   "repository": {
@@ -24,9 +24,10 @@
   "devDependencies": {
     "co": "^4.6.0",
     "ddeyes": "^0.0.1",
-    "is-equal": "^1.5.1",
+    "is-equal": "^1.5.3",
     "redux-on-state-change": "^1.0.0",
-    "shelljs": "^0.6.0",
+    "rimraf": "^2.5.2",
+    "shelljs": "^0.7.0",
     "tape": "^4.5.1"
   },
   "dependencies": {
