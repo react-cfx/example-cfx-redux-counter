@@ -1,12 +1,8 @@
-{ reduxActions } = require 'cfx.redux-actions'
+import { reduxActions } from 'cfx.redux-actions'
 { handleActions } = reduxActions
-{ mergeReduce } = require 'cfx.redux'
-constants = require '../constants/index'
+import { mergeReduce } from 'cfx.redux'
 
-{
-  INCREMENT
-  DECREMENT
-} = constants.types
+dd = require 'ddeyes'
 
 initialState =
   count: 0
@@ -21,9 +17,9 @@ count = handleActions
     action.payload or= 1
     state - action.payload
 
-# , 0
+, 0
 
-module.exports = mergeReduce {
+export default mergeReduce {
   count
 }
 , initialState

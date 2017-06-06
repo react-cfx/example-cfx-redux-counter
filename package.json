@@ -22,19 +22,22 @@
   },
   "homepage": "https://github.com/react-cfx/cfx.example-cfx-redux-counter#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
     "co": "^4.6.0",
-    "ddeyes": "^0.0.1",
-    "is-equal": "^1.5.3",
+    "ddeyes": "0.0.4",
+    "is-equal": "^1.5.5",
     "redux-on-state-change": "^1.0.0",
-    "rimraf": "^2.5.2",
-    "shelljs": "^0.7.0",
-    "tape": "^4.5.1"
+    "rimraf": "^2.6.1",
+    "shelljs": "^0.7.7",
+    "tape": "^4.6.3"
   },
   "dependencies": {
-    "coffee-script": "^1.10.0",
-    "cfx.redux-types": "git+https://github.com/react-cfx/cfx.redux-types.git",
+    "cfx.redux": "git+https://github.com/react-cfx/cfx.redux.git",
     "cfx.redux-actions": "git+https://github.com/react-cfx/cfx.redux-actions.git",
     "cfx.redux-saga": "git+https://github.com/react-cfx/cfx.redux-saga.git",
-    "cfx.redux": "git+https://github.com/react-cfx/cfx.redux.git"
+    "cfx.redux-types": "git+https://github.com/react-cfx/cfx.redux-types.git",
+    "coffeescript": "next"
   }
 }

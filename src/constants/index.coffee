@@ -1,6 +1,6 @@
-{ toActionsTypes } = require 'cfx.redux-types'
+import { toActionsTypes } from 'cfx.redux-types'
 
-module.exports = toActionsTypes {
+export default toActionsTypes {
 
   'INCREMENT'
   'INCREMENT_ASYNC'

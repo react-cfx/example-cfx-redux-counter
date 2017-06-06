@@ -1,4 +1,4 @@
-CounterApp = require '../src/index'
+CounterApp = (require '../dest/index').default
 { actions } = CounterApp
 
 {

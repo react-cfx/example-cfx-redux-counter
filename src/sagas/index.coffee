@@ -1,15 +1,16 @@
 { assign } = Object
-{
+import {
   saga
   sagaEffects
   dispatch
-} = require 'cfx.redux-saga'
+} from 'cfx.redux-saga'
 { takeEvery } = saga
 {
   put
   call
 } = sagaEffects
-constants = require '../constants/index'
+import { default as constants } from '../constants/index'
+
 {
   INCREMENT
   INCREMENT_ASYNC
@@ -44,4 +45,4 @@ rootSaga = [
     , decrementAsync
 ]
 
-module.exports = rootSaga
+export default rootSaga

@@ -1,5 +1,4 @@
-{ createActions } = require 'cfx.redux-actions'
+import { createActions } from 'cfx.redux-actions'
+import { default as constants } from '../constants/index'
 
-constants = require '../constants/index'
-
-module.exports = createActions constants.actions
+export default createActions constants.actions

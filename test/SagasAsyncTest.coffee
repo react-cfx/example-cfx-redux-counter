@@ -9,7 +9,7 @@ onStateChange = (
 { createStore } = require 'cfx.redux'
 { createSagaMiddleware } = require 'cfx.redux-saga'
 
-CounterApp = require '../src/index'
+CounterApp = (require '../dest/index').default
 {
   reducers
   sagas
@@ -41,6 +41,8 @@ module.exports = (t) ->
     createSagaMiddleware sagas
     onStateChange subscriber
   ]
+
+  dd store.getStates()
 
   co do ->
     store.dispatch tasks[0].actual.async()

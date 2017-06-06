@@ -1,10 +1,32 @@
 #!/usr/bin/env coffee
 test = require 'tape'
+require 'shelljs/make'
+dd = require 'ddeyes'
+
+echo = console.log
+
 ReducersSyncTest = require './ReducersSyncTest'
 SagasAsyncTest = require './SagasAsyncTest'
 
-test 'Sync Reducers Test'
-, ReducersSyncTest
+constants = (
+  require '../dest/constants/index'
+).default
+actions = (
+  require '../dest/actions/index'
+).default
 
-test 'Async Sagas Test'
-, SagasAsyncTest
+target.all = -> target.async()
+
+target.constants = -> dd constants
+target.actions = ->
+  for k, v of actions
+    dd k
+    dd v 1
+
+target.sync = ->
+  test 'Sync Reducers Test'
+  , ReducersSyncTest
+
+target.async = ->
+  test 'Async Sagas Test'
+  , SagasAsyncTest

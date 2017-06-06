@@ -2,7 +2,7 @@ dd = require 'ddeyes'
 
 { createStore } = require 'cfx.redux'
 
-CounterApp = require '../src/index'
+CounterApp = (require '../dest/index').default
 { reducers } = CounterApp
 
 taskConf = require './testConf'
