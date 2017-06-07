@@ -7,12 +7,8 @@ onStateChange = (
   require 'redux-on-state-change'
 ).default
 
-# { createStore } = require 'cfx.redux'
-{ createStore, applyMiddleware, combineReducers } = require 'redux'
-# { SagaMiddleware } = require 'cfx.redux-saga'
-createSagaMiddleware = (
-  require 'redux-saga'
-).default
+{ createStore } = require 'cfx.redux'
+{ SagaMiddleware } = require 'cfx.redux-saga'
 
 CounterApp = (require '../dest/index').default
 {
@@ -40,23 +36,16 @@ module.exports = (t) ->
     , task.msg
     dispatch tasks[0].actual.async() if tasks[0]
 
-  # SagaMW = new SagaMiddleware()
-  sagaMiddleware = createSagaMiddleware()
+  SagaMW = new SagaMiddleware()
 
-  store = createStore (
-    combineReducers
-      counterApp: reducers
-  )
-  , applyMiddleware sagaMiddleware , (onStateChange subscriber)
-  # [
-  #   # SagaMW.getMiddleware()
-  #   sagaMiddleware
-  #   onStateChange subscriber
-  # ]
+  store = createStore
+    counterApp: reducers
+  , [
+    SagaMW.getMidleware()
+    onStateChange subscriber
+  ]
 
-  # SagaMW.runSagas sagas
-  for saga in sagas
-    sagaMiddleware.run saga
+  SagaMW.runSagas sagas
 
   co do ->
     store.dispatch tasks[0].actual.async()

@@ -35,10 +35,10 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
+    "cfx.redux": "git+https://github.com/react-cfx/cfx.redux.git",
     "cfx.redux-actions": "git+https://github.com/react-cfx/cfx.redux-actions.git",
+    "cfx.redux-saga": "git+https://github.com/react-cfx/cfx.redux-saga.git",
     "cfx.redux-types": "git+https://github.com/react-cfx/cfx.redux-types.git",
-    "redux": "^3.6.0",
-    "redux-saga": "^0.15.3",
     "redux-on-state-change": "^1.0.0"
   }
 }

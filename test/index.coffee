@@ -14,7 +14,7 @@ actions = (
 ).default
 
 target.all = ->
-  # target.sync()
+  target.sync()
   target.async()
 
 target.constants = -> dd constants
