@@ -2,12 +2,17 @@ dd = require 'ddeyes'
 
 isEqual = require 'is-equal'
 co = require 'co'
+
 onStateChange = (
   require 'redux-on-state-change'
 ).default
 
-{ createStore } = require 'cfx.redux'
-{ createSagaMiddleware } = require 'cfx.redux-saga'
+# { createStore } = require 'cfx.redux'
+{ createStore, applyMiddleware, combineReducers } = require 'redux'
+# { SagaMiddleware } = require 'cfx.redux-saga'
+createSagaMiddleware = (
+  require 'redux-saga'
+).default
 
 CounterApp = (require '../dest/index').default
 {
@@ -33,16 +38,25 @@ module.exports = (t) ->
     t.deepEqual nextState
     , task.expected
     , task.msg
-    dispatch tasks[0].actual.async()
+    dispatch tasks[0].actual.async() if tasks[0]
 
-  store = createStore
-    counterApp: reducers
-  , [
-    createSagaMiddleware sagas
-    onStateChange subscriber
-  ]
+  # SagaMW = new SagaMiddleware()
+  sagaMiddleware = createSagaMiddleware()
 
-  dd store.getStates()
+  store = createStore (
+    combineReducers
+      counterApp: reducers
+  )
+  , applyMiddleware sagaMiddleware , (onStateChange subscriber)
+  # [
+  #   # SagaMW.getMiddleware()
+  #   sagaMiddleware
+  #   onStateChange subscriber
+  # ]
+
+  # SagaMW.runSagas sagas
+  for saga in sagas
+    sagaMiddleware.run saga
 
   co do ->
     store.dispatch tasks[0].actual.async()

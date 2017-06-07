@@ -3,8 +3,6 @@ test = require 'tape'
 require 'shelljs/make'
 dd = require 'ddeyes'
 
-echo = console.log
-
 ReducersSyncTest = require './ReducersSyncTest'
 SagasAsyncTest = require './SagasAsyncTest'
 
@@ -15,7 +13,9 @@ actions = (
   require '../dest/actions/index'
 ).default
 
-target.all = -> target.async()
+target.all = ->
+  # target.sync()
+  target.async()
 
 target.constants = -> dd constants
 target.actions = ->

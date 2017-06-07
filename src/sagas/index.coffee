@@ -1,15 +1,16 @@
-{ assign } = Object
-import {
-  saga
-  sagaEffects
-  dispatch
-} from 'cfx.redux-saga'
-{ takeEvery } = saga
-{
-  put
-  call
-} = sagaEffects
+import * as sagaEffects from 'redux-saga/effects'
 import { default as constants } from '../constants/index'
+
+# dd = require 'ddeyes'
+
+dispatch = (action, actionType) ->
+  sagaEffects.put Object.assign {}
+  , action
+  , type: actionType
+
+delay = (ms) ->
+  new Promise (resolve) ->
+    setTimeout resolve, ms
 
 {
   INCREMENT
@@ -19,29 +20,29 @@ import { default as constants } from '../constants/index'
   DECREMENT_ASYNC
 } = constants.types
 
-delay = (ms) ->
-  new Promise (resolve) ->
-    setTimeout resolve, ms
-
 incrementAsync = (action) ->
-  yield call delay, 1000
+  # dd { INCREMENT }
+  yield sagaEffects.call delay, 1000
   yield dispatch action
   , INCREMENT
   return
 
 decrementAsync = (action) ->
-  yield call delay, 1000
+  # dd { DECREMENT }
+  yield sagaEffects.call delay, 1000
   yield dispatch action
   , DECREMENT
   return
 
 rootSaga = [
   ->
-    yield from takeEvery INCREMENT_ASYNC
+    # dd { INCREMENT_ASYNC }
+    yield sagaEffects.takeLatest INCREMENT_ASYNC
     , incrementAsync
 
   ->
-    yield from takeEvery DECREMENT_ASYNC
+    # dd { DECREMENT_ASYNC }
+    yield sagaEffects.takeLatest DECREMENT_ASYNC
     , decrementAsync
 ]
 
