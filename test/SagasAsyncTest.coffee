@@ -1,24 +1,21 @@
-dd = require 'ddeyes'
+import dd from 'ddeyes'
 
-isEqual = require 'is-equal'
-co = require 'co'
+import isEqual from 'is-equal'
+import co from 'co'
 
-onStateChange = (
-  require 'redux-on-state-change'
-).default
+import onStateChange from 'redux-on-state-change'
 
-{ createStore } = require 'cfx.redux'
-{ SagaMiddleware } = require 'cfx.redux-saga'
+import { createStore } from 'cfx.redux'
+import { SagaMiddleware } from 'cfx.redux-saga'
 
-CounterApp = (require '../dest/index').default
-{
+import {
   reducers
   sagas
-} = CounterApp
+} from '../src'
 
-taskConf = require './testConf'
+import taskConf from './testConf'
 
-module.exports = (t) ->
+export default (t) ->
 
   tasks = taskConf.slice()
 

@@ -1,5 +1,4 @@
-CounterApp = (require '../dest/index').default
-{ actions } = CounterApp
+import { actions }  from '../src'
 
 {
   increment
@@ -8,7 +7,7 @@ CounterApp = (require '../dest/index').default
   decrementAsync
 } = actions
 
-module.exports = [
+export default tasks = [
     actual:
       sync: -> increment()
       async: -> incrementAsync()

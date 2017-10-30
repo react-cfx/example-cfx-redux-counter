@@ -1,13 +1,10 @@
-dd = require 'ddeyes'
+import dd from 'ddeyes'
+import { createStore } from 'cfx.redux'
+import { reducers } from '../src'
 
-{ createStore } = require 'cfx.redux'
+import taskConf from './testConf'
 
-CounterApp = (require '../dest/index').default
-{ reducers } = CounterApp
-
-taskConf = require './testConf'
-
-module.exports = (t) ->
+export default (t) ->
 
   tasks = taskConf.slice()
 

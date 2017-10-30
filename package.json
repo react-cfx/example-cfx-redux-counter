@@ -4,9 +4,7 @@
   "description": "cfx.example-cfx-redux-counter",
   "main": "index.js",
   "scripts": {
-    "test": "./test/index.coffee",
-    "clean": "rimraf -rf build",
-    "build": "npm run clean; coffee -bo build src"
+    "test": "./test/index.coffee"
   },
   "repository": {
     "type": "git",
@@ -27,18 +25,18 @@
     "babel-preset-env": "^1.5.1",
     "babel-runtime": "^6.23.0",
     "co": "^4.6.0",
-    "coffeescript": "next",
+    "coffeescript": "^2.0.2",
     "ddeyes": "0.0.4",
     "is-equal": "^1.5.5",
-    "rimraf": "^2.6.1",
-    "shelljs": "^0.7.7",
-    "tape": "^4.6.3"
+    "rimraf": "^2.6.2",
+    "shelljs": "^0.7.8",
+    "tape": "^4.8.0"
   },
   "dependencies": {
-    "cfx.redux": "git+https://github.com/react-cfx/cfx.redux.git",
-    "cfx.redux-actions": "git+https://github.com/react-cfx/cfx.redux-actions.git",
-    "cfx.redux-saga": "git+https://github.com/react-cfx/cfx.redux-saga.git",
-    "cfx.redux-types": "git+https://github.com/react-cfx/cfx.redux-types.git",
+    "cfx.redux": "0.0.0",
+    "cfx.redux-actions": "0.0.0",
+    "cfx.redux-saga": "0.0.0",
+    "cfx.redux-types": "0.0.1",
     "redux-on-state-change": "^1.0.0"
   }
 }

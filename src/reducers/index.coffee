@@ -2,7 +2,7 @@ import { reduxActions } from 'cfx.redux-actions'
 { handleActions } = reduxActions
 import { mergeReduce } from 'cfx.redux'
 
-dd = require 'ddeyes'
+# import dd from 'ddeyes'
 
 initialState =
   count: 0

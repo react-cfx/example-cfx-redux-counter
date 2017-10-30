@@ -1,10 +1,12 @@
-import { default as types } from './constants/index'
-import { default as actions } from './actions/index'
-import { default as reducers } from './reducers/index'
-import { default as sagas } from './sagas/index'
+import constants from './constants'
+import actions from './actions'
+import reducers from './reducers'
+import sagas from './sagas'
+{ types } = constants
 
-export default {
-  types: types.types
+export {
+  constants
+  types
   actions
   reducers
   sagas

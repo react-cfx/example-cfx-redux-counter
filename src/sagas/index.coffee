@@ -1,5 +1,5 @@
-import * as sagaEffects from 'redux-saga/effects'
-import { default as constants } from '../constants/index'
+import { sagaEffects } from 'cfx.redux-saga'
+import constants from '../constants'
 
 # dd = require 'ddeyes'
 
@@ -34,7 +34,7 @@ decrementAsync = (action) ->
   , DECREMENT
   return
 
-rootSaga = [
+export default [
   ->
     # dd { INCREMENT_ASYNC }
     yield sagaEffects.takeLatest INCREMENT_ASYNC
@@ -45,5 +45,3 @@ rootSaga = [
     yield sagaEffects.takeLatest DECREMENT_ASYNC
     , decrementAsync
 ]
-
-export default rootSaga

@@ -1,4 +1,4 @@
 import { createActions } from 'cfx.redux-actions'
-import { default as constants } from '../constants/index'
+import constants from '../constants'
 
 export default createActions constants.actions
