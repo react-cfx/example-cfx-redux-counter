@@ -5,7 +5,7 @@ import co from 'co'
 
 import onStateChange from 'redux-on-state-change'
 
-import { createStore } from 'cfx.redux'
+import { getStore } from 'cfx.redux'
 import { SagaMiddleware } from 'cfx.redux-saga'
 
 import {
@@ -33,16 +33,13 @@ export default (t) ->
     , task.msg
     dispatch tasks[0].actual.async() if tasks[0]
 
-  SagaMW = new SagaMiddleware()
-
-  store = createStore
-    counterApp: reducers
-  , [
-    SagaMW.getMidleware()
-    onStateChange subscriber
-  ]
-
-  SagaMW.runSagas sagas
+  store = getStore {
+    appName: 'counterApp'
+    reducers
+    sagas
+    subscriber:
+      async: subscriber
+  }
 
   co do ->
     store.dispatch tasks[0].actual.async()

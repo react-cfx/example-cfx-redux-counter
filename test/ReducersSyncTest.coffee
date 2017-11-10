@@ -1,5 +1,5 @@
 import dd from 'ddeyes'
-import { createStore } from 'cfx.redux'
+import { getStore } from 'cfx.redux'
 import { reducers } from '../src'
 
 import taskConf from './testConf'
@@ -8,22 +8,24 @@ export default (t) ->
 
   tasks = taskConf.slice()
 
-  store = createStore
-    counterApp: reducers
+  store = getStore {
+    appName: 'counterApp'
+    reducers
+    subscriber:
+      sync: ->
+        state = store.getState()
+        task = tasks.shift()
+        dd state
+        t.deepEqual state
+        , task.expected
+        , task.msge
+  }
 
   dd store.getState()
-
-  unsubscribe = store.subscribe ->
-    state = store.getState()
-    task = tasks.shift()
-    dd state
-    t.deepEqual state
-    , task.expected
-    , task.msg
 
   for task in tasks.slice()
     store.dispatch task.actual.sync()
 
-  unsubscribe()
+  store.onsubscribe()
 
   t.end()
