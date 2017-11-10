@@ -4,9 +4,10 @@ import constants from '../constants'
 # dd = require 'ddeyes'
 
 dispatch = (action, actionType) ->
-  sagaEffects.put Object.assign {}
-  , action
-  , type: actionType
+  sagaEffects.put {
+    action...
+    type: actionType
+  }
 
 delay = (ms) ->
   new Promise (resolve) ->

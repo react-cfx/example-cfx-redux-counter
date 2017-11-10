@@ -33,10 +33,10 @@
     "tape": "^4.8.0"
   },
   "dependencies": {
-    "cfx.redux": "0.0.0",
-    "cfx.redux-actions": "0.0.0",
-    "cfx.redux-saga": "0.0.0",
-    "cfx.redux-types": "0.0.1",
+    "cfx.redux": "0.0.4",
+    "cfx.redux-actions": "0.0.1",
+    "cfx.redux-saga": "0.0.1",
+    "cfx.redux-types": "0.0.4",
     "redux-on-state-change": "^1.0.0"
   }
 }
