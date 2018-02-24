@@ -1,5 +1,4 @@
-#
-pjName := example-cfx-redux-counter
+pjName := cfx.redux-counter
 
 docker:
 	docker run \
@@ -8,4 +7,10 @@ docker:
 		-ti \
 		-v $$(pwd):/root/${pjName} \
 		mooxe/node \
+		/bin/bash
+
+in:
+	docker exec \
+		-ti \
+		${pjName} \
 		/bin/bash

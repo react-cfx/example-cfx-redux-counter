@@ -1,1 +1,7 @@
-module.exports = require('./dest/index.js').default;
+export {
+  constants,
+  types,
+  actions,
+  reducers,
+  sagas
+} from './src/index.coffee'

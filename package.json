@@ -1,10 +1,13 @@
 {
-  "name": "cfx.example-cfx-redux-counter",
+  "name": "cfx.redux-counter",
   "version": "0.0.0",
-  "description": "cfx.example-cfx-redux-counter",
-  "main": "index.js",
+  "description": "cfx.redux-counter",
+  "main": "dist/bundle.js",
   "scripts": {
-    "test": "./test/index.coffee"
+    "clean": "rm -rf ./dist",
+    "build": "rollup -c",
+    "rebuild": "npm run clean; npm run build",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,23 +23,21 @@
   },
   "homepage": "https://github.com/react-cfx/cfx.example-cfx-redux-counter#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.5.1",
-    "babel-runtime": "^6.23.0",
-    "co": "^4.6.0",
-    "coffeescript": "^2.0.2",
-    "ddeyes": "0.0.4",
+    "coffee-require": "^0.0.4",
+    "ddeyes": "0.0.6",
     "is-equal": "^1.5.5",
     "rimraf": "^2.6.2",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.1",
     "tape": "^4.8.0"
   },
   "dependencies": {
-    "cfx.redux": "0.0.4",
+    "cfx.redux": "0.0.6",
     "cfx.redux-actions": "0.0.1",
     "cfx.redux-saga": "0.0.1",
     "cfx.redux-types": "0.0.4",
-    "redux-on-state-change": "^1.0.0"
+    "cfx.rollup-plugin-coffee2": "^0.1.4",
+    "redux-on-state-change": "^1.0.0",
+    "rollup": "^0.56.2",
+    "rollup-plugin-cleanup": "^2.0.0"
   }
 }

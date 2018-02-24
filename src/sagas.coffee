@@ -1,13 +1,10 @@
-import { sagaEffects } from 'cfx.redux-saga'
-import constants from '../constants'
+import {
+  sagaEffects
+  dispatch
+} from 'cfx.redux-saga'
+import constants from './constants'
 
 # dd = require 'ddeyes'
-
-dispatch = (action, actionType) ->
-  sagaEffects.put {
-    action...
-    type: actionType
-  }
 
 delay = (ms) ->
   new Promise (resolve) ->
